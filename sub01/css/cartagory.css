@@ -91,3 +91,6 @@ a {
 .menu_wrap .menu .depth01.on .depth02 {
     display: flex;
 }
+.menu_wrap .menu li {
+    background-color: #ffffff79;
+}
