@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>냉장고 수납 바구니 (3호)</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .route {
+            margin: 16px 0 10px;
+            display: flex;
+            color: #808080;
+            font-size: 12px;
+            li {
+                padding: 0 3px;
+            }
+        }
+        .route li::after {
+            content: '>';
+        }
+        .item{
+            margin: 0 auto;
+        }
+        .item figure {
+            width: 100%;
+            margin-bottom: 16px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .item .item_text {
+            position: relative;
+        }
+        .item .item_text h5 {
+            font-size: 18px;
+        }
+        .item .item_text .order {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            span {
+                margin: 0 5px;
+                padding: 3px 10px;
+                border-radius: 20px;
+                font-size: 12px;
+                background-color: #FFA0A0;
+            }
+        }
+        .item .item_text strong {
+            margin: 9px 0 17px;
+            font-size: 22px;
+            display: block;
+        }
+        .item .item_text .input_box {
+            width: 100%;
+            margin-bottom: 19px;
+            padding: 10px 17px 7px;
+            border-radius: 5px;
+            border: 1px solid #838383;
+            .option_name {display: none;}
+        }
+        .item .item_text .btn {
+            display: flex;
+            justify-content: space-between;
+        }
+        .item .item_text .btn button {
+            margin-bottom: 26px;
+            width: 137px;
+            height: 33px;
+            border-radius: 10px;
+            align-items: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <ul class="route">
+            <li><a href="../index.html">홈</a></li>
+            <li><a href="카테고리.html">청소/욕실</a></li>
+            <li><a href="#">청소도구</a></li>
+            <li><a href="#">다용도청소솔</a></li>
+        </ul><!-- .route end -->
+        <div class="item">
+            <figure>
+                <img src="../img/거치형청소솔.png" alt="청소솔">
+            </figure>
+            <div class="item_text">
+                <h5>거치형 액체분사 청소솔</h5>
+                <strong>2,000원</strong>
+                <div>
+                    <select class="input_box" name="color" id="color">
+                        <option value="option" class="option_name">옵션을 선택해 주세요.</option>
+                        <option value="blue">파랑색</option>
+                        <option value="red">빨강색</option>
+                        <option value="white">흰색</option>
+                    </select><!-- .input_box end -->
+                </div>
+                <div class="order">
+                    <span>매장픽업가능</span>
+                    <span>대량주문가능</span>
+                </div><!-- .order end -->
+                <div class="btn">
+                    <button style="background-color: #FF3C3C;">바로구매</button>
+                    <button style="background-color: #FF8484;">장바구니담기</button>
+                    <button><img src="../img/heart.png" alt=""></button>
+                </div><!-- .btn -->
+            </div><!-- .item_text -->
+            <div class="info">
+                <ul>
+                    <li>
+                        혜택안내
+                        <ul>
+                            <li>프로모션기간(4/11 ~ 4/23)동안 적립금 5% 적용</li>
+                        </ul>
+                    </li>
+                    <li>
+                        배송안내
+                        <ul>
+                            <li>30,000원 이상 구매시 무료배송</li>
+                        </ul>
+                    </li>
+                    <li>
+                        매장 재고 확인하기
+                        <input type="text" placeholder="매장명을 검색하세요.">
+                    </li>
+                </ul>
+            </div><!-- .info end -->
+            
+        </div><!-- .item end -->
+    </div><!-- .inner end -->
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다이소모바일리뉴얼</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/daiso.css">
+</head>
+
+<script src="lib/jquery-3.7.1.min.js"></script>
+<script>
+    $(function() {
+        //s00
+        $('.s00 .inner .search_title ul li').click(function(){
+            $('.s00 .inner .search_title ul li').removeClass('on');
+
+            $(this).addClass('on');
+        })//
+
+
+
+    }); //script end
+</script>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="inner">
+                <h1><a href="#"><img src="img/icon_logo-fff.png" alt="logo"></a></h1>
+                <ul>
+                    <li><a href="#"><img src="img/Icon_search.png" alt="검색"></a></li>
+                    <li><a href="sub01/scan.html"><img src="img/Icon_scan(f).png" alt="스캔"></a></li>
+                    <li><a href="#"><img src="img/Icon_shop.png" alt="장바구니"></a></li>
+                </ul>
+            </div><!-- .inner end -->
+        </div> <!-- .header end -->
+        <main class="main_visual">
+            <figure><img src="img/main_visual.jpg" alt="main01"></figure>
+            <p>가성비 추천 스킨케어!<br />도파민을 자극하는 뷰티템</p>
+        </main><!-- .main_visual end -->
+        <section class="s00">
+            <div class="inner">
+                <div class="search_title">
+                    <h2>우리동네 다이소 찾기</h2>
+                    <ul>
+                        <li class="on">매장</li>
+                        <li>재고</li>
+                    </ul>
+                </div><!-- .search_title end -->
+                <div class="search_bar">
+                    <select class="local" name="local" id="local">
+                        <option value="">서울</option>
+                        <option value="">인천</option>
+                        <option value="">부산</option>
+                        <option value="">대구</option>
+                        <option value="">경기도</option>
+                        <option value="">경상도</option>
+                        <option value="">충청도</option>
+                        <option value="">전라도</option>
+                    </select>
+                    <input type="text" placeholder="상세주소를 입력해주세요.">
+                </div><!-- .search_bar end -->
+            </div><!-- .inner -->
+        </section><!-- .s00 end -->
+
+        <section class="s01">
+            <div class="inner">
+                <div class="list s01-1">
+                    <figure><img src="img/s01-1.jpg" alt=""></figure>
+                    <figure>NEW</figure>
+                </div><!-- .s01-1 -->
+                <div class="list s01-2">
+                    <figure><img src="img/s01-2.jpg" alt=""></figure>
+                    <figure><img src="img/s01-3.jpg" alt=""></figure>
+                    <figure><img src="img/s01-4.jpg" alt=""></figure>
+                </div><!-- s01-2 ebd -->
+                <div class="list s01-2">
+                    <figure><img src="img/s01-5.jpg" alt=""></figure>
+                    <figure><img src="img/s01-6.jpg" alt=""></figure>
+                    <figure><img src="img/s01-7.jpg" alt=""></figure>
+                </div><!-- s01-2 ebd -->
+                <div class="list s01-3">
+                    <figure>메뉴 더보기<span><img src="img/Icon_이동.png" alt=""></span></figure>
+                    <figure><img src="img/s01-8.jpg" alt=""></figure>
+                </div><!-- .s01-3 end -->
+            </div>
+        </section><!-- .s01 end -->
+
+        <section class="s02">
+            <div class="inner">
+                <h2>#주부 9단 <p>김영자씨의 정리비결</p></h2>
+                <figure><img src="img/s02--1.jpg" alt=""></figure>
+                <div class="box">
+                    <div class="box_title">
+                        <span>연관상품</span>
+                        <span><a href="#">전체보기</a></span>
+                    </div>
+                    <div class="item_wrap">
+                        <a href="#" class="item">
+                            <figure><img src="img/s02-2.jpg" alt=""></figure>
+                            <div>
+                                <strong>1,000원</strong>
+                                <p>냉장고 수납 바구니 (3호)</p>
+                            </div>
+                        </a><!-- .item end -->
+                        
+                        <a href="#" class="item">
+                            <figure><img src="img/s02-3.jpg" alt=""></figure>
+                            <div>
+                                <strong>3,000원</strong>
+                                <p>직사각 바트 (대)</p>
+                            </div>
+                        </a><!-- .item end -->
+                        
+                        <a href="#" class="item">
+                            <figure><img src="img/s02-4.jpg" alt=""></figure>
+                            <div>
+                                <strong>2,000원</strong>
+                                <p>세로형밀폐용기 (2.8L)</p>
+                            </div>
+                        </a><!-- .item end -->
+                        
+                        <a href="#" class="item">
+                            <figure><img src="img/s02-2.jpg" alt=""></figure>
+                            <div>
+                                <strong>3,000원</strong>
+                                <p>다용도 심플 수납</p>
+                            </div>
+                        </a><!-- .item end -->
+                        
+                    </div><!-- .item_wrap end -->
+                    <a href="#" class="banner">
+                        <figure><img src="img/s02-5.jpg" alt=""></figure>
+                        <div>#<p>직장생활 2년차</p> 김대리의 책상 꾸미기</div>
+                    </a>
+                </div>
+            </div><!-- .inner end -->
+        </section><!-- .s02 end -->
+
+        <section class="s03">
+            <div class="inner">
+                <div class="title">
+                    <h2>이번 주 기획전</h2>
+                    <h3>MD가 추천하는 다이소 숨은 꿀템</h3>
+                    <p>전체 기획전 보기</p>
+                </div><!-- .title end -->
+                <div class="item">
+                    <figure></figure>
+                    <div class="text_box">
+                        <strong>DIGIRAL</strong>
+                        <p>건조한 계절, 우리 집을 더 촉촉하게!</p>
+                        <span>건조한 우리 집을 촉촉하게 만들어 줄 세련된 디자인의 공간맞춤 무드등 가습기, LED 무드등으로 인테리어 효과까지 누려보세요.</span>
+                    </div><!-- .text_box -->
+                </div><!-- .item end -->
+            </div><!-- .inner end -->
+        </section><!-- .s03 end -->
+
+        <footer class="footer" id="footer">
+            <div class="inner">
+                <ul>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">서비스이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">청소년보호정책</a></li>
+                    <li><a href="#">위치기반서비스 이용약관</a></li>
+                </ul>
+                <div>
+
+                </div>
+            </div><!-- .inner end -->
+        </footer><!-- .footer end -->
+
+        <nav class="nav_bar nav">
+            <div class="inner">
+                <ul>
+                    <li><a href="sub01/카테고리.html">
+                       <img src="img/nav_카테고리.png" alt=""></a>
+                       <span>카테고리</span>
+                    </li>
+                    <li>
+                        <a href="sub01/오늘의발견.html"><img src="img/nav_오늘의발견.png" alt=""></a>
+                        <span>오늘의발견</span>
+                    </li>
+                    <li class="home"><a href="#"><img src="img/nav_home.png" alt=""></a></li>
+                    <li>
+                        <a href="sub01/마이페이지_메뉴.html"><img src="img/nav_마이페이지.png" alt=""></a>
+                        <span>마이페이지</span>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/nav_최근에본상품.png" alt=""></a>
+                        <span>최근에 본 상품</span>
+                    </li>
+                </ul>
+                
+            </div><!-- .inner end -->
+        </nav><!-- .nav_bar -->
+    </div><!-- .wrap end -->
+</body>
+</html>

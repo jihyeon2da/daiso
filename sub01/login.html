@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .inner h2 {
+            margin: 125px 0 32px;
+            text-align: center;
+        }
+        fieldset {
+            border: 0;
+        }
+
+        .fieldset01 legend {
+            position: absolute;
+            left: -99999999px;
+        }
+        .fieldset01 .box {
+            width: 100%;
+            text-align: center;
+        }
+        .fieldset01 .box label {
+            position: absolute;
+            left: -99999999px;
+        }
+        .fieldset01 .box01 input[type="text"] {
+            width: 90%;
+            margin-bottom: 12px;
+            padding: 15px 30px;
+            border-radius: 5px;
+            border: 0;
+            background-color: #D9D9D9;
+            color: rgba(0, 0, 0, 0.486);
+            font-size: 12px;
+        }
+        .fieldset01 .box02 {
+            margin-top: 16px;
+        }
+        .fieldset01 .box02 ul {
+            display: flex;
+            justify-content: center;
+            li {
+                margin: 0 24px 43px;
+            }
+        }
+        .fieldset01 .box03 {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 26px;
+            li {
+                margin: 0 20px;
+                font-size: 12px;
+            }
+        }
+        .fieldset02 {
+            border-top: 1px solid #333;
+        }
+        .fieldset02 legend {
+            margin-bottom: 33px;
+           text-align: center;
+        }
+        .fieldset02 .sns_login .sns {
+            display: flex;
+            justify-content: center;
+        }
+        .fieldset02 .sns_login .sns li {
+            margin: 0 25px 45px;
+            img{
+                width: 42px;
+            }
+        }
+        .fieldset02 .sns_login .biz {
+            display: flex;
+            justify-content: center;
+        }
+        .fieldset02 .sns_login .biz p {
+            padding-right: 18px;
+            color: #808080;
+            strong {
+                color: #333;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inner">
+        <h2>로그인</h2>
+        <fieldset class="fieldset01">
+            <legend>로그인정보입력</legend>
+            <div class="box box01">
+                <label for="id">ID</label>
+                <input type="text" id="id" placeholder="아이디를 입력해 주세요.">
+            </div><!-- .box01 end -->
+            <div class="box box01">
+                <label for="password">password</label>
+                <input type="text" id="password" placeholder="비밀번호를 입력해 주세요.">
+            </div><!-- .box01 end -->
+            <div class="box box02">
+                <label for="checkbox">로그인자동저장</label>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="auto_login" value="ID" checked>
+                        <span>아이디 저장</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="auto_login" value="login" checked>
+                        <span>자동 로그인</span>
+                    </li>
+                </ul>
+            </div><!-- .box02 end -->
+            <ul class="box box03">
+                <li><a href="#">아이디 찾기</a></li>
+                <li><a href="#">비밀번호 찾기</a></li>
+                <li><a href="#">회원가입</a></li>
+            </ul><!-- .box03 end -->
+        </fieldset><!-- .fieldset01 end -->
+
+        <fieldset class="fieldset02">
+            <legend>sns 간편로그인</legend>
+            <div class="sns_login">
+                <ul class="sns">
+                    <li><a href="#"><img src="img/kakao.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/naver.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/apple.png" alt=""></a></li>
+                </ul><!-- .sns end -->
+                <div class="biz">
+                    <p>혹시 다이소 <strong>BIZ 회원</strong>이신가요?</p>
+                    <a href="#">BIZ 로그인</a>
+                </div>
+            </div><!-- .sns_login -->
+        </fieldset><!-- .fieldset02 -->
+    </div><!-- .inner end -->
+</body>
+
+</html>
