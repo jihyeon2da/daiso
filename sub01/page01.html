@@ -6,6 +6,30 @@
     <title>냉장고 수납 바구니 (3호)</title>
     <link rel="stylesheet" href="../css/reset.css">
     <style>
+        .header {
+            background-color: #E50012;
+            padding: 62px 0 15px;
+        }
+
+        .header .inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .inner ul {
+            display: flex;
+        }
+
+        .header .inner ul li {
+            margin-left: 12px;
+            padding: 0 3px;
+            width: 28px;
+
+            img {
+                width: 100%;
+            }
+        }
         .route {
             margin: 16px 0 10px;
             display: flex;
@@ -77,6 +101,16 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="inner">
+            <h1><a href="../index.html"><img src="../img/icon_logo-fff.png" alt="logo"></a></h1>
+            <ul>
+                <li><a href="#"><img src="../img/Icon_search.png" alt="검색"></a></li>
+                <li><a href="#"><img src="../img/Icon_scan(f).png" alt="스캔"></a></li>
+                <li><a href="#"><img src="../img/Icon_shop.png" alt="장바구니"></a></li>
+            </ul>
+        </div><!-- .inner end -->
+    </div> <!-- .header end -->
     <div class="inner">
         <ul class="route">
             <li><a href="../index.html">홈</a></li>

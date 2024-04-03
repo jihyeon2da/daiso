@@ -265,17 +265,16 @@ a {
 /* .nav_bar */
 .nav_bar {
     position: sticky;
-    bottom: 0;
+    bottom: 49px;
 }
 .nav_bar .inner {
-    height: 106px;
+    height: 57px;
     background-color: #C6C6C6;
 }
 .nav_bar .inner ul {
-    padding: 0 15px;
+    padding: 0 15px 49px;
     display: flex;
     justify-content: space-between;
-    line-height: 80px;
 }
 .nav_bar .inner ul li {
     width: 50px;
@@ -291,5 +290,5 @@ a {
     width: 100%;
     text-align: center;
     font-size: 14px;
-    font-weight: semibold;
+    font-weight: bold;
 }
