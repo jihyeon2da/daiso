@@ -18,6 +18,11 @@
             $(this).addClass('on');
         })//
 
+        //footer
+        $('.footer .footer_info .footer_text p').click.(function(){
+            
+            $('.footer .footer_info .footer_text .footer_text_inner').addClass('on');
+        });
 
 
     }); //script end
@@ -66,22 +71,46 @@
         <section class="s01">
             <div class="inner">
                 <div class="list s01-1">
-                    <figure><img src="img/s01-1.jpg" alt=""></figure>
+                    <figure>
+                        <img src="img/s01-1.jpg" alt="">
+                        <span style="color: #fff;" class="span span01 span_big">금주의 BEST 아이템</span>
+                    </figure>
                     <figure>NEW</figure>
                 </div><!-- .s01-1 -->
                 <div class="list s01-2">
-                    <figure><img src="img/s01-2.jpg" alt=""></figure>
-                    <figure><img src="img/s01-3.jpg" alt=""></figure>
-                    <figure><img src="img/s01-4.jpg" alt=""></figure>
+                    <figure>
+                        <img src="img/s01-2.jpg" alt="">
+                        <span class="span span02">청소용품</span>
+                    </figure>
+                    <figure>
+                        <img src="img/s01-3.jpg" alt="">
+                        <span class="span span01">문구/팬시</span>
+                    </figure>
+                    <figure>
+                        <img src="img/s01-4.jpg" alt="">
+                        <span class="span span02">뷰티</span>
+                    </figure>
                 </div><!-- s01-2 ebd -->
                 <div class="list s01-2">
-                    <figure><img src="img/s01-5.jpg" alt=""></figure>
-                    <figure><img src="img/s01-6.jpg" alt=""></figure>
-                    <figure><img src="img/s01-7.jpg" alt=""></figure>
+                    <figure>
+                        <img src="img/s01-5.jpg" alt="">
+                        <span class="span span02">식품</span>
+                    </figure>
+                    <figure>
+                        <img src="img/s01-6.jpg" alt="">
+                        <span class="span span02">유아/완구</span>
+                    </figure>
+                    <figure>
+                        <img src="img/s01-7.jpg" alt="">
+                        <span class="span span02">공구/디지털</span>
+                    </figure>
                 </div><!-- s01-2 ebd -->
                 <div class="list s01-3">
                     <figure>메뉴 더보기<span><img src="img/Icon_이동.png" alt=""></span></figure>
-                    <figure><img src="img/s01-8.jpg" alt=""></figure>
+                    <figure>
+                        <img src="img/s01-8.jpg" alt="">
+                        <span style="margin-right: 30px;" class="span span01 span_big">다이소 소식 바로가기</span>
+                    </figure>
                 </div><!-- .s01-3 end -->
             </div>
         </section><!-- .s01 end -->
@@ -157,17 +186,62 @@
 
         <footer class="footer" id="footer">
             <div class="inner">
-                <ul>
+                <ul class="footer_menu">
                     <li><a href="#">회사소개</a></li>
                     <li><a href="#">서비스이용약관</a></li>
                     <li><a href="#">개인정보처리방침</a></li>
                     <li><a href="#">청소년보호정책</a></li>
                     <li><a href="#">위치기반서비스 이용약관</a></li>
                 </ul>
-                <div>
-
-                </div>
+                <div class="footer_info">
+                    <div class="footer_btn">
+                        <h1><img src="img/footer_logo.png" alt=""></h1>
+                        <ul class="sns">
+                            <li><a href="#"><img src="img/footer_sns_facebook.png" alt="f"></a></li>
+                            <li><a href="#"><img src="img/footer_sns_instar.png" alt="i"></a></li>
+                            <li><a href="#"><img src="img/footer_sns_tiktok.png" alt="t"></a></li>
+                            <li><a href="#"><img src="img/footer_sns_blog.png" alt="b"></a></li>
+                            <li><a href="#"><img src="img/footer_sns_youtube.png" alt="y"></a></li>
+                        </ul><!-- .sns end -->
+                    </div><!-- .footer_btn end -->
+                    <div class="footer_text">
+                        <p>(주)아성다이소</p>
+                        <div class="footer_text_inner">
+                            <span>대표 : 김기호</span>
+                            <span>사업자등록번호 : 213-81-52063</span>
+                            <span>주소 : 서울특별시 강남구 남부순환로 2748 아성(ASUNG)</span>
+                            <span>개인정보 및 청소년 보호 책임자 : 조태진</span>
+                        </div><!-- .footer_text_inner end -->
+                    </div><!-- .footer_text end -->
+                    <div class="footer_call">
+                        <ul>
+                            <li>
+                                <figure class="call_img"><img src="img/footer_call.png" alt="call"></figure>
+                                <div>
+                                    <p>다이소몰 고객센터</p>
+                                    <strong>1599-2211</strong>
+                                    <span>평일 09:00 ~ 18:00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <figure class="call_img"><img src="img/footer_call-red.png" alt="call"></figure>
+                                <div>
+                                    <p>매장 고객센터</p>
+                                    <strong>1522-4400</strong>
+                                    <span>평일 09:00 ~ 18:00</span>
+                                    <span>토요일 09:00 ~ 14:00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- .footer_call -->
+                    <div class="footer_mark">
+                        <figure><img src="img/footer_mark01.png" alt=""></figure>
+                        <figure><img src="img/footer_mark02.png" alt=""></figure>
+                        <figure><img src="img/footer_mark03.png" alt=""></figure>
+                    </div><!-- .footer_mark end -->
+                </div><!-- .footer_info end -->
             </div><!-- .inner end -->
+
         </footer><!-- .footer end -->
 
         <nav class="nav_bar nav">
@@ -181,14 +255,14 @@
                         <a href="sub01/오늘의발견.html"><img src="img/nav_오늘의발견.png" alt=""></a>
                         <span>오늘의발견</span>
                     </li>
-                    <li class="home"><a href="#"><img src="img/nav_home.png" alt=""></a></li>
+                    <li class="home"><a href="#"><img src="img/nav_홈.png" alt=""></a></li>
                     <li>
-                        <a href="sub01/마이페이지_메뉴.html"><img src="img/nav_마이페이지.png" alt=""></a>
+                        <a href="sub01/마이페이지_메뉴.html"><img src="img/nav_회원정보.png" alt=""></a>
                         <span>마이페이지</span>
                     </li>
                     <li>
-                        <a href="#"><img src="img/nav_최근에본상품.png" alt=""></a>
-                        <span>최근에 본 상품</span>
+                        <a href="sub01/page01.html"><img src="img/nav_최근기록.png" alt=""></a>
+                        <span>최근기록</span>
                     </li>
                 </ul>
                 

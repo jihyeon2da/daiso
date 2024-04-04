@@ -94,3 +94,15 @@ a {
 .menu_wrap .menu li {
     background-color: #ffffff79;
 }
+
+@media screen and (max-width:400px) {
+    .menu_wrap .menu .depth01 .depth02 {
+        flex-wrap: wrap;
+    }
+    .menu_wrap .menu .depth01 .depth02 li {
+        margin-bottom: 5px;
+        width: 80%;
+        height: 60px;
+        border-radius: 0;
+    }
+}
