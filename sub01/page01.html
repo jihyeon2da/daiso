@@ -98,6 +98,42 @@
             align-items: center;
             font-size: 18px;
         }
+
+        /* .nav_bar */
+.nav_bar {
+    position: sticky;
+    bottom: 0;
+}
+.nav_bar .inner {
+    background-color: #C6C6C6;
+}
+.nav_bar .inner ul {
+    padding: 18px 10px 35px;
+    display: flex; 
+    justify-content: space-between;
+    
+}
+.nav_bar .inner ul li {
+    width: 40px;
+    position: relative;
+    img {
+        width: 40px;
+    }
+}
+.nav_bar .inner ul .home {
+    width: 55px;
+    img {
+        width: 55px;
+    }
+} 
+.nav_bar .inner ul li span {
+    width: 100px;
+    position: absolute;
+    bottom: 0;
+    left: -8px;
+    font-size: 14px;
+    font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -166,5 +202,30 @@
             
         </div><!-- .item end -->
     </div><!-- .inner end -->
+
+    <nav class="nav_bar nav">
+        <div class="inner">
+            <ul>
+                <li><a href="카테고리.html">
+                   <img src="../img/nav_카테고리.png" alt=""></a>
+                   <span>카테고리</span>
+                </li>
+                <li>
+                    <a href="오늘의발견.html"><img src="../img/nav_오늘의발견.png" alt=""></a>
+                    <span>오늘의발견</span>
+                </li>
+                <li class="home"><a href="../index.html"><img src="../img/nav_홈.png" alt=""></a></li>
+                <li>
+                    <a href="마이페이지_메뉴.html"><img src="../img/nav_회원정보.png" alt=""></a>
+                    <span>마이페이지</span>
+                </li>
+                <li>
+                    <a href="page01.html"><img src="../img/nav_최근기록.png" alt=""></a>
+                    <span>최근기록</span>
+                </li>
+            </ul>
+            
+        </div><!-- .inner end -->
+    </nav><!-- .nav_bar -->
 </body>
 </html>
