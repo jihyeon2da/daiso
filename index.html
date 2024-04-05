@@ -2,272 +2,664 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>다이소모바일리뉴얼</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/daiso.css">
-</head>
+    <title>Jihyeon's portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="lib/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/portfolio.css">
 
-<script src="lib/jquery-3.7.1.min.js"></script>
-<script>
-    $(function() {
-        //s00
-        $('.s00 .inner .search_title ul li').click(function(){
-            $('.s00 .inner .search_title ul li').removeClass('on');
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="lib/fullpage.js"></script>
+    <link rel="stylesheet" href="lib/fullpage.css">
+    <script src="lib/jquery.fancybox.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        $(function(){
+            var myFullpage = new fullpage('#fullpage', {
+            navigation: false,
+            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', 'lastPage'],
+            afterLoad: function(){ 
+                    if ($('#section0').hasClass('active') == true) {
+                        //alert()
+                        $('.menu_bar').animate({
+                            width: $('.menu li').eq(0).outerWidth(),
+                            left: $('.menu li').eq(0).position().left,
+                        });
+                    }
 
-            $(this).addClass('on');
-        })//
+                    if ($('#section01').hasClass('active') == true) {
+                        //alert()
+                        $('.menu_bar').animate({
+                            width: $('.menu li').eq(1).outerWidth(),
+                            left: $('.menu li').eq(1).position().left,
+                        });
+                    }
+                    
+                    if ($('#section03').hasClass('active') == true) {
+                        //alert()
+                        $('.menu_bar').animate({
+                            width: $('.menu li').eq(2).outerWidth(),
+                            left: $('.menu li').eq(2).position().left,
+                        });
+                    }
 
-        //footer
-        $('.footer .footer_info .footer_text p').click.(function(){
+                    if ($('#section04').hasClass('active') == true) {
+                        //alert()
+                        $('.menu_bar').animate({
+                            width: $('.menu li').eq(3).outerWidth(),
+                            left: $('.menu li').eq(3).position().left,
+                        });
+                    }
+
+                    if ($('#section05').hasClass('active') == true) {
+                        //alert()
+                        $('.menu_bar').animate({
+                            width: $('.menu li').eq(4).outerWidth(),
+                            left: $('.menu li').eq(4).position().left,
+                        });
+                    }
+
+                    if ($('#section06').hasClass('active') == true) {
+                        //alert()
+                        $('.menu_bar').animate({
+                            width: $('.menu li').eq(5).outerWidth(),
+                            left: $('.menu li').eq(5).position().left,
+                        });
+                    }
+
+                   
+                },
+            responsiveWidth: 900,
+            afterResponsive: function(isResponsive){
+
+            }
             
-            $('.footer .footer_info .footer_text .footer_text_inner').addClass('on');
+            });//fullpage
+        
+            /* .header */
+            let menu = $('.header .gnb .menu li');
+            let body = $('body');
+            let section = $('.section');
+            
+
+            /* for(let i =0; i < menu.length; i++ ) {
+                menu[i].addEventListener('click', () => {
+                    
+                    menu.foreach((item) => {
+                        item.classList.remove('on');
+                    });
+                    menu[i].classList.add('on');
+
+                    section.foreach((item) => {
+                        item.classList.remove('on');
+                    })
+                    section[i].classList.add('on');
+                })
+            }// */
+
+
+          
+            let menuWidth = $('.gnb .menu li').outerWidth();
+            
+            $('.menu_bar').css({
+                'width' : menuWidth
+            });
+            $('.menu li').mouseenter(function(){
+                let moveLeft = $(this).position().left;
+                let moveWidth = $(this).outerWidth();
+                $('.menu_bar').animate({
+                    width : moveWidth,
+                    left : moveLeft
+                })
+            });//
+
+            
+            if(body.hasClass('fp-scroll-mac.fp-viewing-secondPage').length) {
+                alert()
+              /*   $('.menu_bar').animate({
+                    width : $('.menu li').eq(2).position().left,
+                    left : $('.menu li').eq(2).outerWidth()
+                }) */
+            }///
+
+
+             /* section0 (.main) */
+            const content = "HELLO! I'm JIHYEON, WEBPURBLISHER.";
+            const text = document.querySelector(".text");
+            let i = 0;
+
+            function typing(){
+                let txt = content[i++];
+                text.innerHTML += txt=== "\n" ? "<br/>": txt;
+                if (i > content.length) {
+                    text.textContent = "";
+                    i = 0;
+                }
+            } setInterval(typing, 300)
+        
+        
+            /* section4 (.design) */
+            var swiper4 = new Swiper(".design_Swiper", {
+                slidesPerView: 4,
+                spaceBetween: 60,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },});
+
+            let designText = $('.design .text p')
+
+            swiper4.on('slideChange', function () {
+                var currentSlide = $(swiper4.slides[swiper4.activeIndex]);
+                var itemCmt = currentSlide.attr("data-text");
+               
+                designText.html(itemCmt);
+            });//4
+
+            /* .code*/
+            let menu05 = document.querySelectorAll('.code ul li');
+            let list05 = document.querySelectorAll('.code .code_box');
+
+            for(let i = 0; i < menu05.length; i++) {
+                menu05[i].addEventListener('click', ()=> {
+                    menu05.forEach(list => {
+                        list.classList.remove('on');
+                    });
+                    menu05[i].classList.add('on');
+
+                    list05.forEach(list => {
+                        list.classList.remove('on');
+                    })
+                    list05[i].classList.add('on');
+        
+                })
+            }//
+
+
+            /* .contect */
+            $('.contect .inner .item').click(function(){
+                //alert()
+                $(this).addClass('on');
+            })//
+
         });
 
 
-    }); //script end
-</script>
+
+           
+
+        
+       
+    </script>
+</head>
 <body>
-    <div class="wrap">
-        <div class="header">
-            <div class="inner">
-                <h1><a href="#"><img src="img/icon_logo-fff.png" alt="logo"></a></h1>
-                <ul>
-                    <li><a href="#"><img src="img/Icon_search.png" alt="검색"></a></li>
-                    <li><a href="sub01/scan.html"><img src="img/Icon_scan(f).png" alt="스캔"></a></li>
-                    <li><a href="#"><img src="img/Icon_shop.png" alt="장바구니"></a></li>
-                </ul>
-            </div><!-- .inner end -->
-        </div> <!-- .header end -->
-        <main class="main_visual inner">
-            <figure><img src="img/main_visual.jpg" alt="main01"></figure>
-            <p>가성비 추천 스킨케어!<br />도파민을 자극하는 뷰티템</p>
-        </main><!-- .main_visual end -->
-        <section class="s00">
-            <div class="inner">
-                <div class="search_title">
-                    <h2>우리동네 다이소 찾기</h2>
-                    <ul>
-                        <li class="on">매장</li>
-                        <li>재고</li>
-                    </ul>
-                </div><!-- .search_title end -->
-                <div class="search_bar">
-                    <select class="local" name="local" id="local">
-                        <option value="">서울</option>
-                        <option value="">인천</option>
-                        <option value="">부산</option>
-                        <option value="">대구</option>
-                        <option value="">경기도</option>
-                        <option value="">경상도</option>
-                        <option value="">충청도</option>
-                        <option value="">전라도</option>
-                    </select>
-                    <input type="text" placeholder="상세주소를 입력해주세요.">
-                </div><!-- .search_bar end -->
-            </div><!-- .inner -->
-        </section><!-- .s00 end -->
+    <div class="wrap" id="wrap">
+        <header class="header" id="header">
+                <div class="inner">
+                    <h1><a href="#firstPage"><img src="img/logo.png" alt="로고"></a></h1>
+                    <nav class="gnb">
+                        <ul class="menu">
+                            <li class="on"><a href="#firstPage">HOME</a></li>
+                            <li><a href="#secondPage">ABOUT</a></li>
+                            <li><a href="#3rdPage">WEB/APP</a></li>
+                            <li><a href="#4thpage">DESIGN</a></li>
+                            <li><a href="#lastPage">CONTECT</a></li>
+                        </ul><!-- .menu end -->
+                        <div class="menu_bar">
+                            <span>메뉴바</span>
+                        </div>
+                    </nav><!-- .gnb end -->
+                </div><!-- .inner end -->
+        </header><!-- .header end -->
 
-        <section class="s01">
-            <div class="inner">
-                <div class="list s01-1">
-                    <figure>
-                        <img src="img/s01-1.jpg" alt="">
-                        <span style="color: #fff;" class="span span01 span_big">금주의 BEST 아이템</span>
-                    </figure>
-                    <figure>NEW</figure>
-                </div><!-- .s01-1 -->
-                <div class="list s01-2">
-                    <figure>
-                        <img src="img/s01-2.jpg" alt="">
-                        <span class="span span02">청소용품</span>
-                    </figure>
-                    <figure>
-                        <img src="img/s01-3.jpg" alt="">
-                        <span class="span span01">문구/팬시</span>
-                    </figure>
-                    <figure>
-                        <img src="img/s01-4.jpg" alt="">
-                        <span class="span span02">뷰티</span>
-                    </figure>
-                </div><!-- s01-2 ebd -->
-                <div class="list s01-2">
-                    <figure>
-                        <img src="img/s01-5.jpg" alt="">
-                        <span class="span span02">식품</span>
-                    </figure>
-                    <figure>
-                        <img src="img/s01-6.jpg" alt="">
-                        <span class="span span02">유아/완구</span>
-                    </figure>
-                    <figure>
-                        <img src="img/s01-7.jpg" alt="">
-                        <span class="span span02">공구/디지털</span>
-                    </figure>
-                </div><!-- s01-2 ebd -->
-                <div class="list s01-3">
-                    <figure>메뉴 더보기<span><img src="img/Icon_이동.png" alt=""></span></figure>
-                    <figure>
-                        <img src="img/s01-8.jpg" alt="">
-                        <span style="margin-right: 30px;" class="span span01 span_big">다이소 소식 바로가기</span>
-                    </figure>
-                </div><!-- .s01-3 end -->
-            </div>
-        </section><!-- .s01 end -->
-
-        <section class="s02">
-            <div class="inner">
-                <h2>#주부 9단 <p>김영자씨의 정리비결</p></h2>
-                <figure><img src="img/s02--1.jpg" alt=""></figure>
-                <div class="box">
-                    <div class="box_title">
-                        <span>연관상품</span>
-                        <span><a href="#">전체보기</a></span>
-                    </div>
-                    <div class="item_wrap">
-                        <a href="#" class="item">
-                            <figure><img src="img/s02-2.jpg" alt=""></figure>
-                            <div>
-                                <strong>1,000원</strong>
-                                <p>냉장고 수납 바구니 (3호)</p>
-                            </div>
-                        </a><!-- .item end -->
-                        
-                        <a href="#" class="item">
-                            <figure><img src="img/s02-3.jpg" alt=""></figure>
-                            <div>
-                                <strong>3,000원</strong>
-                                <p>직사각 바트 (대)</p>
-                            </div>
-                        </a><!-- .item end -->
-                        
-                        <a href="#" class="item">
-                            <figure><img src="img/s02-4.jpg" alt=""></figure>
-                            <div>
-                                <strong>2,000원</strong>
-                                <p>세로형밀폐용기 (2.8L)</p>
-                            </div>
-                        </a><!-- .item end -->
-                        
-                        <a href="#" class="item">
-                            <figure><img src="img/s02-2.jpg" alt=""></figure>
-                            <div>
-                                <strong>3,000원</strong>
-                                <p>다용도 심플 수납</p>
-                            </div>
-                        </a><!-- .item end -->
-                        
-                    </div><!-- .item_wrap end -->
-                    <a href="#" class="banner">
-                        <figure><img src="img/s02-5.jpg" alt=""></figure>
-                        <div>#<p>직장생활 2년차</p> 김대리의 책상 꾸미기</div>
-                    </a>
-                </div>
-            </div><!-- .inner end -->
-        </section><!-- .s02 end -->
-
-        <section class="s03">
-            <div class="inner">
-                <div class="title">
-                    <h2>이번 주 기획전</h2>
-                    <h3>MD가 추천하는 다이소 숨은 꿀템</h3>
-                    <p>전체 기획전 보기</p>
-                </div><!-- .title end -->
-                <div class="item">
-                    <figure><img src="img/s03-1.jpg" alt=""></figure>
+        <div id="fullpage">
+            <main class="section main on" id="section0">
+                <div class="inner">
+                    <h1>PORTFOLIO</h1>
                     <div class="text_box">
-                        <strong>DIGIRAL</strong>
-                        <p>건조한 계절, 우리 집을 더 촉촉하게!</p>
-                        <span>건조한 우리 집을 촉촉하게 만들어 줄 세련된 디자인의 공간맞춤 무드등 가습기, LED 무드등으로 인테리어 효과까지 누려보세요.</span>
-                    </div><!-- .text_box -->
-                </div><!-- .item end -->
-            </div><!-- .inner end -->
-        </section><!-- .s03 end -->
+                        <span class="text"></span><span class="blink">|</span>
+                    </div><!-- .text_box end -->
+                </div><!-- .inner end -->
+            </main><!-- .main end -->
 
-        <footer class="footer" id="footer">
-            <div class="inner">
-                <ul class="footer_menu">
-                    <li><a href="#">회사소개</a></li>
-                    <li><a href="#">서비스이용약관</a></li>
-                    <li><a href="#">개인정보처리방침</a></li>
-                    <li><a href="#">청소년보호정책</a></li>
-                    <li><a href="#">위치기반서비스 이용약관</a></li>
-                </ul>
-                <div class="footer_info">
-                    <div class="footer_btn">
-                        <h1><img src="img/footer_logo.png" alt=""></h1>
-                        <ul class="sns">
-                            <li><a href="#"><img src="img/footer_sns_facebook.png" alt="f"></a></li>
-                            <li><a href="#"><img src="img/footer_sns_instar.png" alt="i"></a></li>
-                            <li><a href="#"><img src="img/footer_sns_tiktok.png" alt="t"></a></li>
-                            <li><a href="#"><img src="img/footer_sns_blog.png" alt="b"></a></li>
-                            <li><a href="#"><img src="img/footer_sns_youtube.png" alt="y"></a></li>
-                        </ul><!-- .sns end -->
-                    </div><!-- .footer_btn end -->
-                    <div class="footer_text">
-                        <p>(주)아성다이소</p>
-                        <div class="footer_text_inner">
-                            <span>대표 : 김기호</span>
-                            <span>사업자등록번호 : 213-81-52063</span>
-                            <span>주소 : 서울특별시 강남구 남부순환로 2748 아성(ASUNG)</span>
-                            <span>개인정보 및 청소년 보호 책임자 : 조태진</span>
-                        </div><!-- .footer_text_inner end -->
-                    </div><!-- .footer_text end -->
-                    <div class="footer_call">
-                        <ul>
-                            <li>
-                                <figure class="call_img"><img src="img/footer_call.png" alt="call"></figure>
-                                <div>
-                                    <p>다이소몰 고객센터</p>
-                                    <strong>1599-2211</strong>
-                                    <span>평일 09:00 ~ 18:00</span>
-                                </div>
-                            </li>
-                            <li>
-                                <figure class="call_img"><img src="img/footer_call-red.png" alt="call"></figure>
-                                <div>
-                                    <p>매장 고객센터</p>
-                                    <strong>1522-4400</strong>
-                                    <span>평일 09:00 ~ 18:00</span>
-                                    <span>토요일 09:00 ~ 14:00</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- .footer_call -->
-                    <div class="footer_mark">
-                        <figure><img src="img/footer_mark01.png" alt=""></figure>
-                        <figure><img src="img/footer_mark02.png" alt=""></figure>
-                        <figure><img src="img/footer_mark03.png" alt=""></figure>
-                    </div><!-- .footer_mark end -->
-                </div><!-- .footer_info end -->
-            </div><!-- .inner end -->
+            <section class="section about" id="section01">
+                <div class="inner">
+                    <div class="about1">
+                        <figure><img src="img/aboutImg.png" alt="소개이미지"></figure>
+                        <p>항상 연구하고 끊임없이<br />
+                            생각하는 <strong>웹퍼블리셔</strong>,<br />
+                            <strong>하지현</strong>입니다.</p>
+                    </div><!-- .about1 end -->
+                    <div class="about2">
+                        <div class="a2 profill">
+                            <h4>PROFILL</h4>
+                            <div class="p p1">
+                                <span>name</span>
+                                <p>하지현</p>
+                                <p>HA JIHYEON</p>
+                            </div>
+                            <div class="p p2">
+                                <span>Birth</span><p>00.09.20</p>
+                                <span>Phone</span><p>010.4043.5006</p>
+                            </div>
+                            <div class="p p3">
+                                <span>E-mail</span>
+                                <p>happyjh2haha@naver.com</p>
+                            </div>
+                        </div><!-- .profill end -->
+                        <div class="a2 education">
+                            <h4>EDUCATION</h4>
+                            <div>
+                                <span>2024. 04</span>
+                                <P>UI/UX 반응형 웹디자인&웹퍼블리셔 양성과정 수료</P>
+                            </div>
+                            <div>
+                                <span>2024. 02</span>
+                                <p>경성대학교 졸업</p>
+                            </div>
+                        </div><!-- .education -->
+                        <div class="a2 skill">
+                            <h4>SKILL</h4>
+                            <div class="skill_icon">
+                                <div class="code">
+                                    <figure><img src="img/skill_html.png" alt=""></figure>
+                                    <figure><img src="img/skill_css.png" alt=""></figure>
+                                    <figure><img src="img/skill_js.png" alt=""></figure>
+                                    <figure class="jquery"><img src="img/skill_jquery.png" alt=""></figure>
+                                </div><!-- .code end -->
+                                <div class="tool">
+                                    <figure><img src="img/skill_ps.png" alt=""></figure>
+                                    <figure><img src="img/skill_ai.png" alt=""></figure>
+                                    <figure><img src="img/skill_figma.png" alt=""></figure>
+                                </div><!-- .tool end -->
+                            </div>
+                        </div><!-- .skill end -->
+                    </div><!-- .about2 end -->
+                </div><!-- .inner end -->
+            </section><!-- .about end -->
 
-        </footer><!-- .footer end -->
+            <section class="section web_app" id="section03">
+                <!-- fp-auto-height -->
+                <div class="inner">
+                    <div class="cont_wrap">
+                        <div class="cont cont1" id="hapa">
+                            <span></span>
+                            <div class="mockup">
+                                <div class="m-pc_page"><figure><img src="img/pc_하파크리스틴.png" alt="하파크리스틴메인페이지"></figure></div>
+                            </div><!-- .mockup end -->
+                            <div class="mobile_mockup">
+                                <div class="m-mobile_page"><figure><img src="img/hapa_mobile.jpg" alt="하파크리스틴모바일"></figure></div>
+                            </div><!-- .mobile_mockup emd -->
+                            <div class="text_info">
+                                <h4>HAPAKRISTIN</h4>
+                                <p>하파크리스틴 스토어를 리디자인하여 반응형으로 제작했습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>기본형 웹사이트 리디자인 퍼블리싱</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css(scss), java script, jquery</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>Photoshop, Figma, VScode</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>디자인 100%, 퍼블리싱 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a href="process/하파크리스틴process.pdf" target="_blank">PROCESS</a>
+                                    <a class="web_btn" href="https://jihyeon2da.github.io/hapakristin/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont1 end -->
 
-        <nav class="nav_bar nav">
-            <div class="inner">
-                <ul>
-                    <li><a href="sub01/카테고리.html">
-                       <img src="img/nav_카테고리.png" alt=""></a>
-                       <span>카테고리</span>
-                    </li>
-                    <li>
-                        <a href="sub01/오늘의발견.html"><img src="img/nav_오늘의발견.png" alt=""></a>
-                        <span>오늘의발견</span>
-                    </li>
-                    <li class="home"><a href="#"><img src="img/nav_홈.png" alt=""></a></li>
-                    <li>
-                        <a href="sub01/마이페이지_메뉴.html"><img src="img/nav_회원정보.png" alt=""></a>
-                        <span>마이페이지</span>
-                    </li>
-                    <li>
-                        <a href="sub01/page01.html"><img src="img/nav_최근기록.png" alt=""></a>
-                        <span>최근기록</span>
-                    </li>
-                </ul>
-                
-            </div><!-- .inner end -->
-        </nav><!-- .nav_bar -->
+                        <div class="cont cont3" id="f5nature">
+                            <span></span>
+                            <div class="mockup">
+                                <div class="m-pc_page"><figure><img src="img/f5nature_pc.jpg" alt="F5nature메인페이지"></figure></div>
+                            </div><!-- .mockup end -->
+                            <div class="tablet_mockup">
+                                <div class="m-tablet_page"><figure><img src="img/f5nature_tablet.jpg" alt="F5nature메인페이지(태블릿형)"></figure></div>
+                            </div><!-- .mobile_mockup emd -->
+                            <div class="mobile_mockup">
+                                <div class="m-mobile_page"><figure><img src="img/f5nature_mobile.jpg" alt="F5nature메인페이지(모바일형)"></figure></div>
+                            </div><!-- .mobile_mockup emd -->
+                            <div class="text_info">
+                                <h4>F5NATURE</h4>
+                                <p>에프오네이쳐의 웹사이트를 반응형으로 제작했습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>반응형 웹사이트 퍼블리싱</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css(scss), java script, jquery</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>Figma, VScode</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>퍼블리싱 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a class="web_btn" href="https://jihyeon2da.github.io/F5nature/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont3 end -->
+                        
+                        <div class="cont cont1" id="awesomeneeds">
+                            <span></span>
+                            <div class="mockup">
+                                <div class="m-pc_page"><figure><img src="img/awesomeneeds_pc.png" alt="어썸니즈메인페이지"></figure></div>
+                            </div><!-- .mockup end -->
+                            <div class="mobile_mockup">
+                                <div class="m-mobile_page"><figure><img src="img/awesomeneeds_mobile.png" alt="어썸니즈메인페이지(모바일형)"></figure></div>
+                            </div><!-- .mobile_mockup emd -->
+                            <div class="text_info">
+                                <h4>AWESOMENEEDS</h4>
+                                <p>어썸니즈의 리디자인하여 반응형으로 제작했습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>반응형 웹사이트 리디자인 퍼블리싱</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>Figma, VScode</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>디자인 100%, 퍼블리싱 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a class="web_btn" href="https://jihyeon2da.github.io/awesomeneeds_p/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont1 end -->
+
+                        <div class="cont cont2" id="netflix">
+                            <span></span>
+                            <div class="mockup">
+                                <div class="m-pc_page"><figure><img src="img/netflix_pc.png" alt="넷플릭스메인페이지"></figure></div>
+                            </div><!-- .mockup end -->
+                            <div class="mobile_mockup">
+                                <div class="m-mobile_page"><figure><img src="img/netflix_mobile.png" alt="넷플릭스메인페이지(모바일형)"></figure></div>
+                            </div><!-- .mobile_mockup emd -->
+                            <div class="text_info">
+                                <h4>NETFLIX</h4>
+                                <p>넷플릭스의 컨텐츠를 반응형으로 제작해 보았습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>반응형 웹사이트 리디자인 퍼블리싱</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>Figma, VScode</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>퍼블리싱 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a href="#">FIGMA</a>
+                                    <a class="web_btn" href="https://jihyeon2da.github.io/netflix-/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont2 end -->
+
+                        <div class="cont cont2" id="airfrance">
+                            <span></span>
+                            <div class="mockup">
+                                <div class="m-pc_page"><figure><img src="img/airfrance_pc.png" alt="에어프랑스메인페이지"></figure></div>
+                            </div><!-- .mockup end -->
+                            <div class="text_info">
+                                <h4>AIRFRANCE</h4>
+                                <p>에어프랑스 홈페이지를 리디자인하여 웹사이트를 만들었습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>기본형 웹사이트 퍼블리싱</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>Photoshop, Figma, VScode</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>퍼블리싱 100% 디자인 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a href="process/에어프랑스.pdf" target="_blank">PROCESS</a>
+                                    <a class="web_btn" href="https://jihyeon2da.github.io/airfrance/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont2 end -->
+
+                        <div class="cont cont1" id="cu">
+                            <span></span>
+                            <div class="mockup">
+                                <div class="m-pc_page"><figure><img src="img/cu_pc.png" alt="씨유메인페이지"></figure></div>
+                            </div><!-- .mockup end -->
+                            <div class="text_info">
+                                <h4>CU</h4>
+                                <p>CU의 웹사이트를 모작해 보았습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>기본형 웹사이트 퍼블리싱</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>VScode</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>퍼블리싱 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a class="web_btn" href="https://jihyeon2da.github.io/CU/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont1 end -->
+
+                        <div class="cont cont4" id="daiso">
+                            <span></span>
+                            <div class="QR"></div>
+                            <div class="mobile_mockup4">
+                                 <div class="m-mobile_page"><figure><img src="img/daiso_mobile.jpg" alt="부산여행메인페이지(모바일형)"></figure></div>
+                                <figure><img src="img/mockup_iphone14.png" alt="모바일목업"></figure>
+                               
+                            </div><!-- .mobile_mockup emd -->
+                            <div class="text_info">
+                                <h4>다이소</h4>
+                                <p>다이소 웹사이트를 모바일화하여 메인페이지와 서브페이지를 구성해봤습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>웹사이트 모바일형으로 디자인</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css, javascript, jquery</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>VScode, figma</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>퍼블리싱 100% 디자인 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a href="https://www.figma.com/file/A7HGIiWxqX9UCF1xpkzxmP/DAISO?type=design&node-id=0-1&mode=design&t=4BVkEbML25rFqywq-0" target="_blank">FIGMA</a>
+                                    <a href="process/daiso.pdf" target="_blank">PROCESS</a>
+                                    <a class="web_btn" href ="https://jihyeon2da.github.io/daiso/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont4 end -->
+
+                        <div class="cont cont4" id="busantour">
+                            <span></span>
+                            <div class="QR"></div>
+                            <div class="mobile_mockup4">
+                                 <div class="m-mobile_page"><figure><img src="img/busantour.png" alt="부산여행메인페이지(모바일형)"></figure></div>
+                                <figure><img src="img/mockup_iphone14.png" alt="모바일목업"></figure>
+                               
+                            </div><!-- .mobile_mockup emd -->
+                            <div class="text_info">
+                                <h4>부산테마여행</h4>
+                                <p>리액트를 사용하여 부산관광지를 소개해보았습니다.</p>
+                                <ul>
+                                    <li>
+                                        <strong>프로젝트</strong>
+                                        <span>모바일형 웹사이트 리디자인 퍼블리싱</span>
+                                    </li>
+                                    <li>
+                                        <strong>사용언어</strong>
+                                        <span>html, css</span>
+                                    </li>
+                                    <li>
+                                        <strong>프로그램</strong>
+                                        <span>VScode, react</span>
+                                    </li>
+                                    <li>
+                                        <strong>참여도</strong>
+                                        <span>퍼블리싱 100% 디자인 100%</span>
+                                    </li>
+                                </ul>
+                                <div class="btn">
+                                    <a class="web_btn" href ="https://jihyeon2da.github.io/BusanTour/" target="_blank">WEBSITE</a>
+                                </div><!-- btn end -->
+                            </div><!-- .text_info -->
+                        </div><!-- .cont4 end -->
+
+
+                    </div><!-- .cont_wrap end -->
+                </div><!-- .inner end -->
+            </section><!-- web_app end -->
+
+            <section class="section design" id="section04">
+                <div class="inner">
+                    <span></span>
+                    <div class="angle"></div>
+                    <div class="swiper-container design_Swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" data-text="수험생이벤트참여해봐@!!">
+                                <figure><a href="img/d-수험생이벤트.jpg" data-fancybox="gallery"><img src="img/d_수험생이벤트(B).jpg" alt="수험생이벤트이미지"></a></figure>
+                            </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide" data-text="일광전구 snowman15 출시<br/>클릭하면 상세페이지 이동">
+                                <figure><a href="img/d_snowman상세페이지.jpg" data-fancybox="gallery"><img src="img/d_snowman상세페이지(s).jpg" alt="일광전구상세페이지"></a></figure>
+                            </div><!-- .swiper-slide end -->
+                              
+                            <div class="swiper-slide" data-text="제시카 렌터카 많은이용바랍니다!">
+                                <figure><a href="img/d_렌터카.jpg" data-fancybox="gallery"><img src="img/d_렌터카(s).jpg" alt="제시카렌터카포스터"></a></figure>
+                            </div><!-- .swiper-slide end -->
+                  
+                            <div class="swiper-slide" data-text="부산투어 궁금하다면 클릭<br/> 상세페이지 바로가기!!">
+                              <figure><a href="img/d-부산시티투어.jpg" data-fancybox="gallery"><img src="img/d_부산시티투어.jpg" alt="d-부산시티투어"></a></figure>
+                            </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide" data-text="크리스마스 케이크 주문 받습니다!">
+                              <figure><a href="img/d-크리스마스.jpg" data-fancybox="gallery"><img src="img/d_크리스마스.jpg" alt="크리스마스이벤트이미지"></a></figure>
+                            </div><!-- .swiper-slide end -->
+                  
+                            <div class="swiper-slide" data-text="open!!애견동반테마파크">
+                              <figure><a href="img/d-테마파크애견동반.jpg" data-fancybox="gallery"><img src="img/d_테마파크애견동반.jpg" alt="테마파크이벤트이미지"></a></figure>
+                            </div><!-- .swiper-slide end -->
+                  
+                            <div class="swiper-slide" data-text="금요일 저녁 모차르트와 함께~">
+                                <figure><a href="img/d-음악회.jpg" data-fancybox="gallery"><img src="img/d_음악회.jpg" alt="음악회이미지"></a></figure>
+                              </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide" data-text="사랑하는 사람에게 선물하세요~">
+                              <figure><a href="img/d-발렌타인.jpg" data-fancybox="gallery"><img src="img/d_발렌타인.jpg" alt="발렌타인데이이벤트이미지"></a></figure>
+                            </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide" data-text="가을숙박 파격 이벤트🎊">
+                                <figure><a href="img/d-부산관광기획전.jpg" data-fancybox="gallery"><img src="img/d_부산관광기획전.jpg" alt="부산관광기획전"></a></figure>
+                              </div><!-- .swiper-slide end -->
+                  
+                            <div class="swiper-slide" data-text="7/15 플리마켓 어서오세요!">
+                              <figure><a href="img/d-플리마켓.jpg" data-fancybox="gallery"><img src="img/d_플리마켓.jpg" alt="플리마켓개최이미지"></a></figure>
+                            </div><!-- .swiper-slide end -->
+
+                            <div class="swiper-slide" data-text="성공한 사업가의 철학이야기">
+                                <figure><a href="img/d-성공한사업가.jpg" data-fancybox="gallery"><img src="img/d_성공한사업가.jpg" alt="성공한ceo철학이미지"></a></figure>
+                              </div><!-- .swiper-slide end -->
+                  
+                        </div><!-- .swiper-wrapper end -->
+                        <div class="text">
+                            <h4>jihyeon-haha</h4>
+                            <p>수험생이벤트참여해봐@!!</p>
+                        <div class="swiper-pagination"></div>
+                    </div><!-- .design_Swiper end -->
+                </div>
+            </section><!-- .design end -->
+
+            <section class="section contect" id="section06">
+                <div class="inner">
+                    <div class="item">
+                        <p>contect ME</p>
+                        <div class="call">
+                            <div class="call_route">
+                                <ul>
+                                    <li class="route">(Tel.)</li>
+                                    <li>010.4043.5006</li>
+                                </ul>
+                                <ul>
+                                    <li class="route">(E-mail)</li>
+                                    <li>happyjh2haha@naver.com</li>
+                                </ul>
+                            </div>
+                            <div class="btn">
+                                <a href="#">RESUME</a>
+                                <a href="https://github.com/jihyeon2da" target="_blank">GITHUB</a>
+                             </div><!-- .btn -->
+                        </div><!-- .call end -->
+                    </div><!-- .item -->
+                </div><!-- .inner end -->
+            </section><!-- contect end -->
+
+            <footer class="section footer" id="footer">
+                <div class="inner">
+                    <p>※ 본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다. 일부 내용 및 폰트, 이미지 등은 그 출처가 따로 있음을 밝힙니다.</p>
+                    <p>COPYRIHT © 2024. jihyeon(●'◡'●) All Right Reserved.</p>
+                </div><!-- .inner end -->
+            </footer><!-- .footer end -->
+
+        </div><!-- .fullpage end -->
     </div><!-- .wrap end -->
 </body>
 </html>
