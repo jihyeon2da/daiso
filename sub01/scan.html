@@ -67,20 +67,31 @@
             height: 100%;
             object-fit: cover;
         }
+
         .time {
             margin: 7px auto 23px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .time .timer {
+
+        .time p {
             margin-right: 14px;
-            color: #E50012;
-            font-size: 18px;
+            
         }
+        .time p input[type='text'] {
+            width: 32px;
+            border: 0;
+            color: #E50012;
+            font-size: 16px;
+        }
+
         .time #reset {
             padding: 2px 6px;
             border-radius: 5px;
             border: 2px solid #D9D9D9;
         }
+
         .point {
             display: flex;
             margin: 0 10px 16px;
@@ -88,10 +99,12 @@
             align-items: center;
             border-radius: 10px;
             border: 4px solid #D9D9D9;
+
             p {
                 margin: 0 35px 0 12px;
                 font-size: 18px;
             }
+
             strong {
                 font-size: 22px;
             }
@@ -112,43 +125,90 @@
         }
 
         /* .nav_bar */
-.nav_bar {
-    position: sticky;
-    bottom: 0;
-}
-.nav_bar .inner {
-    background-color: #C6C6C6;
-}
-.nav_bar .inner ul {
-    padding: 18px 10px 35px;
-    display: flex; 
-    justify-content: space-between;
-    
-}
-.nav_bar .inner ul li {
-    width: 40px;
-    position: relative;
-    img {
-        width: 40px;
-    }
-}
-.nav_bar .inner ul .home {
-    width: 55px;
-    img {
-        width: 55px;
-    }
-} 
-.nav_bar .inner ul li span {
-    width: 100px;
-    position: absolute;
-    bottom: 0;
-    left: -8px;
-    font-size: 14px;
-    font-weight: bold;
-}
+        .nav_bar {
+            position: sticky;
+            bottom: 0;
+        }
+
+        .nav_bar .inner {
+            background-color: #C6C6C6;
+        }
+
+        .nav_bar .inner ul {
+            padding: 18px 10px 35px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .nav_bar .inner ul li {
+            width: 40px;
+            position: relative;
+
+            img {
+                width: 40px;
+            }
+        }
+
+        .nav_bar .inner ul .home {
+            width: 55px;
+
+            img {
+                width: 55px;
+            }
+        }
+
+        .nav_bar .inner ul li span {
+            width: 100px;
+            position: absolute;
+            bottom: 0;
+            left: -8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
     </style>
 
 </head>
+
+
+<script src="../lib/jquery-3.7.1.min.js"></script>
+<script>
+    $(function () {
+        const Timer = document.getElementById('Timer');
+        let time = 180000;
+        let min = 3;
+        let sec = 60;
+
+
+        Timer.value = min + ":" + '00';
+
+        function TIMER() {
+            PlAYTIME = setInterval(function () {
+                time = time - 1000;
+                min = time / (60 * 1000);
+
+                if (sec > 0) {
+                    sec = sec - 1;
+                    Timer.value = Math.floor(min) + ':' + sec;
+
+                }
+                if (sec === 0) {
+
+                    sec = 60;
+                    Timer.value = Math.floor(min) + ':' + '00'
+                }
+
+            }, 1000);
+        }
+
+
+        TIMER();
+        setTimeout(function () {
+            clearInterval(PlAYTIME);
+        }, 180000);
+
+    });//
+</script>
 
 <body>
     <div class="header">
@@ -167,8 +227,10 @@
             <figure><img src="img/qr.png" alt="qr"></figure>
         </div><!-- .scan end -->
         <div class="time">
-            <label class="timer" for="timer">1:30</label>
-            <input id="reset" type="button" value="재설정" readonly/>
+            <p>
+                <input id="Timer" type="text" value="" readonly />
+            </p>
+            <input id="reset" type="button" value="재설정" readonly />
         </div><!-- .time -->
         <div class="point">
             <figure><img src="img/point.png" alt="포인트"></figure>
@@ -195,8 +257,8 @@
         <div class="inner">
             <ul>
                 <li><a href="카테고리.html">
-                   <img src="../img/nav_카테고리.png" alt=""></a>
-                   <span>카테고리</span>
+                        <img src="../img/nav_카테고리.png" alt=""></a>
+                    <span>카테고리</span>
                 </li>
                 <li>
                     <a href="오늘의발견.html"><img src="../img/nav_오늘의발견.png" alt=""></a>
@@ -212,7 +274,7 @@
                     <span>최근기록</span>
                 </li>
             </ul>
-            
+
         </div><!-- .inner end -->
     </nav><!-- .nav_bar -->
 </body>
